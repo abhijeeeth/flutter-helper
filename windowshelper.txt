@@ -152,3 +152,42 @@ Universal Tips:
 - Use SSD for system drive
 - Keep at least 10-15% free space
 - Regular hardware cleaning
+
+
+Windows CLI Commands for Performance
+------------------
+1. System File Commands:
+   - sfc /scannow (scan and repair system files)
+   - DISM /Online /Cleanup-Image /RestoreHealth
+   - chkdsk /f /r (check and repair disk)
+   - defrag C: /A /O (analyze and optimize drive)
+   - cleanmgr /sageset:1 (disk cleanup)
+
+2. Memory & Process Commands:
+   - taskkill /F /IM "process.exe" (force close program)
+   - wmic process where "name='process.exe'" delete
+   - powercfg -energy (power efficiency report)
+   - powercfg /hibernate off (disable hibernation)
+   - wmic memorychip get capacity (check RAM)
+
+3. Network Performance:
+   - ipconfig /flushdns (clear DNS cache)
+   - netsh winsock reset (reset network stack)
+   - netsh int ip reset (reset IP stack)
+   - netsh advfirewall reset (reset firewall)
+   - route -f (clear routing table)
+
+4. System Services:
+   - services.msc (manage services)
+   - sc config "service" start=disabled
+   - sc stop "service" (stop service)
+   - msconfig (system configuration)
+   - bcdedit /set useplatformclock false
+
+5. Cache Clearing:
+   - del /s /f /q %temp%\*.*
+   - del /s /f /q C:\Windows\Temp\*.*
+   - del /s /f /q C:\Windows\Prefetch\*.*
+   - rundll32.exe advapi32.dll,ProcessIdleTasks
+   - wsreset.exe (reset Windows Store)
+
