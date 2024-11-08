@@ -1,0 +1,154 @@
+System Performance Optimization Guide
+==================
+Windows
+------------------
+1. System Cleanup
+   - Run Disk Cleanup to remove temporary files
+   - Uninstall unused programs
+   - Clear browser cache and history
+   - Delete old Windows update files
+   - Empty Recycle Bin regularly
+
+2. Startup Optimization
+   - Disable unnecessary startup programs
+   - Use Task Manager to manage startup items
+   - Remove unwanted background services
+   - Configure selective startup in msconfig
+   - Delay startup apps for faster initial boot
+
+3. System Settings
+   - Adjust for best performance in Performance Options
+   - Disable visual effects and animations
+   - Optimize virtual memory settings
+   - Disable unnecessary Windows features
+   - Turn off background apps
+   - Reduce startup delay
+
+4. Hardware Optimization
+   - Defragment HDD regularly (not needed for SSD)
+   - Check and repair disk errors
+   - Update device drivers
+   - Monitor disk health
+   - Clean PC components physically
+   - Ensure proper ventilation
+
+5. Memory Management
+   - Install additional RAM if needed
+   - Close memory-intensive applications
+   - Use memory optimization tools
+   - Clear RAM cache periodically
+   - Monitor memory usage
+   - Limit browser tabs
+
+6. Storage Optimization
+   - Enable Storage Sense
+   - Move files to external storage
+   - Use disk compression
+   - Enable TRIM for SSDs
+   - Maintain at least 10% free space
+   - Use disk cleanup tools regularly
+
+7. Network Performance
+   - Update network drivers
+   - Reset TCP/IP stack
+   - Clear DNS cache
+   - Optimize network settings
+   - Use wired connection when possible
+   - Update router firmware
+
+8. Windows Services
+   - Disable unnecessary services
+   - Optimize service startup types
+   - Configure Windows Update settings
+   - Disable superfetch if using SSD
+   - Manage indexing options
+   - Optimize search settings
+
+9. Power Settings
+   - Use High Performance power plan
+   - Customize power options
+   - Disable sleep mode if not needed
+   - Adjust hard disk timeout
+   - Configure CPU power management
+   - Optimize battery settings
+
+10. Software Optimization
+    - Keep Windows updated
+    - Update applications regularly
+    - Remove bloatware
+    - Use lightweight alternatives
+    - Clear application caches
+    - Repair corrupted files
+
+Windows Maintenance Commands:
+- sfc /scannow (System File Checker)
+- DISM /Online /Cleanup-Image /RestoreHealth
+- chkdsk /f /r
+- ipconfig /flushdns
+- netsh winsock reset
+
+Windows Registry Tweaks (Use with caution):
+- Disable Windows animations
+- Reduce menu show delay
+- Optimize service timeout values
+- Adjust processor scheduling
+- Configure system responsiveness
+
+macOS
+------------------
+1. System Cleanup
+   - Use built-in Storage Management
+   - Clear system and application caches
+   - Remove unused applications
+   - Empty Trash regularly
+   - Clear browser data
+
+2. Performance Optimization
+   - Manage Login Items
+   - Reset SMC and NVRAM/PRAM
+   - Keep macOS updated
+   - Repair disk permissions
+   - Monitor Activity Monitor
+   - Optimize Spotlight indexing
+
+3. Maintenance Commands:
+   - sudo periodic daily weekly monthly
+   - sudo purge (clear RAM cache)
+   - diskutil verifyVolume /
+   - sudo maintenance on/off
+   - xattr -cr (clear quarantine attributes)
+
+Linux
+------------------
+1. System Cleanup
+   - Use package manager cleanup tools
+   - Clear system journals
+   - Remove old kernels
+   - Clear package cache
+   - Empty trash
+
+2. Performance Optimization
+   - Manage startup services
+   - Configure swap usage
+   - Use lightweight desktop environments
+   - Optimize I/O scheduler
+   - Monitor system resources
+   - Configure CPU governor
+
+3. Maintenance Commands:
+   - sudo apt autoremove (Debian/Ubuntu)
+   - sudo pacman -Sc (Arch)
+   - journalctl --vacuum-size=500M
+   - sudo fstrim -av (SSD optimization)
+   - sudo updatedb (update locate database)
+
+Universal Tips:
+- Use CCleaner or similar tools responsibly
+- Schedule regular maintenance tasks
+- Monitor system performance
+- Create system backups
+- Keep security software updated
+- Maintain good ventilation
+- Use SSD for system drive
+- Keep at least 10-15% free space
+- Regular hardware cleaning
