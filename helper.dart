@@ -1,5 +1,3 @@
-
-
 class UtilHelper {
   // Snackbar Helper
   static void showSnackBar(BuildContext context, String message,
@@ -67,7 +65,6 @@ class UtilHelper {
   }
 }
 
-
 class UIHelper {
   // Spacing (Margins and Padding)
   static const double smallPadding = 8.0;
@@ -99,15 +96,21 @@ class UIHelper {
   }
 
   // Screen Height Percentage
-  static double screenHeightPercentage(BuildContext context, double percentage) {
+  static double screenHeightPercentage(
+      BuildContext context, double percentage) {
     return MediaQuery.of(context).size.height * (percentage / 100);
   }
 
   // Padding Helpers
   static EdgeInsets allPadding(double value) => EdgeInsets.all(value);
-  static EdgeInsets symmetricPadding({double vertical = 0, double horizontal = 0}) =>
+  static EdgeInsets symmetricPadding(
+          {double vertical = 0, double horizontal = 0}) =>
       EdgeInsets.symmetric(vertical: vertical, horizontal: horizontal);
-  static EdgeInsets onlyPadding({double top = 0, double bottom = 0, double left = 0, double right = 0}) =>
+  static EdgeInsets onlyPadding(
+          {double top = 0,
+          double bottom = 0,
+          double left = 0,
+          double right = 0}) =>
       EdgeInsets.only(top: top, bottom: bottom, left: left, right: right);
 
   // Box Decoration
@@ -127,10 +130,14 @@ class UIHelper {
   }
 
   // Reusable Text Widget
-  static Widget reusableText(String text, {Color color = Colors.black, double fontSize = 16.0, FontWeight fontWeight = FontWeight.normal}) {
+  static Widget reusableText(String text,
+      {Color color = Colors.black,
+      double fontSize = 16.0,
+      FontWeight fontWeight = FontWeight.normal}) {
     return Text(
       text,
-      style: TextStyle(color: color, fontSize: fontSize, fontWeight: fontWeight),
+      style:
+          TextStyle(color: color, fontSize: fontSize, fontWeight: fontWeight),
     );
   }
 
@@ -152,7 +159,8 @@ class UIHelper {
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(borderRadius),
         ),
-        padding: EdgeInsets.symmetric(vertical: paddingVertical, horizontal: paddingHorizontal),
+        padding: EdgeInsets.symmetric(
+            vertical: paddingVertical, horizontal: paddingHorizontal),
       ),
       child: Text(
         text,
