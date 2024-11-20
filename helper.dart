@@ -189,3 +189,39 @@ class UIHelper {
     );
   }
 }
+
+class UIHelper {
+  // Common Text Styles
+  static TextStyle headingTextStyle = TextStyle(
+    fontSize: 24.0,
+    fontWeight: FontWeight.bold,
+    color: Colors.black,
+  );
+
+  static TextStyle subheadingTextStyle = TextStyle(
+    fontSize: 18.0,
+    fontWeight: FontWeight.w600,
+    color: Colors.grey[700],
+  );
+
+  static TextStyle bodyTextStyle = TextStyle(
+    fontSize: 16.0,
+    color: Colors.grey[600],
+  );
+
+  // Common Icon Styles
+  static Icon successIcon = Icon(
+    Icons.check_circle,
+    color: Colors.green,
+  );
+
+  static Icon errorIcon = Icon(
+    Icons.error,
+    color: Colors.red,
+  );
+
+  static Icon warningIcon = Icon(
+    Icons.warning,
+    color: Colors.orange,
+  );
+}
