@@ -233,6 +233,17 @@ flutter doctor
 flutter analyze
 flutter test
 
+LAUNCHER ICON
+
+flutter_launcher_icons:
+  android: "launcher_icon"
+  ios: true
+  remove_alpha_ios: true
+  image_path: "lib/assets/icons/gropu1icon.png"
+  adaptive_icon_foreground: "lib/assets/icons/gropu1icon.png"
+  adaptive_icon_background: "#FFFFF"
+  min_sdk_android: 21
+
 
 Account Delete Popup
 ==================
