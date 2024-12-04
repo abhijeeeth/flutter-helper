@@ -1,3 +1,59 @@
+IF u have issue in loading image after taking: On ios use this
+##############################################################
+  Future<void> _openCamera() async {
+    WidgetsFlutterBinding.ensureInitialized();
+
+    // Obtain a list of the available cameras on the device.
+    final cameras = await availableCameras();
+
+    // Get a specific camera from the list of available cameras.
+    final firstCamera = cameras.first;
+    var result;
+
+    // Navigate to the camera screen and get the result (file path or PlatformFile).
+    result = await Navigator.push(
+        context,
+        MaterialPageRoute(
+            builder: (context) => TakePictureScreen(
+                  camera: firstCamera,
+                  displayGallery: true,
+                )));
+
+    // If result is not null, proceed with updating the image list.
+    if (result != null) {
+      setState(() {
+        var imageLen = imageFiles.length;
+        if (imageLen < 2) {
+          // Check if the result is a String (file path), and create a PlatformFile or File.
+          if (result is String) {
+            // If result is a String (path), convert it to a File.
+            File imageFile = File(result);
+            // Add it to the list if you're using File type, or wrap it in PlatformFile.
+            imageFiles.add(PlatformFile(
+                name: imageFile.path.split('/').last, path: result, size: 0));
+          } else if (result is PlatformFile) {
+            // If result is already a PlatformFile, directly add it.
+            imageFiles.add(result);
+          }
+
+          if (_selectedSituation != null) {
+            submitVal = true;
+          }
+        } else {
+          Fluttertoast.showToast(
+              msg: "You can only select a maximum of 2 images",
+              backgroundColor: Colors.black);
+        }
+      });
+    }
+  }
+
+
+
+=======================================================================>......>>>>>>>>>>>>>>>>>>>>>>
+
+
+
 Flutter Tips & Tricks
 ==================
 1. Hot Reload (r): Quickly see changes without restarting app
