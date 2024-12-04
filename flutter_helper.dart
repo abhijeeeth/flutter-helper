@@ -1,4 +1,6 @@
-IF u have issue in loading image after taking: On ios use this
+
+
+F u have issue in loading image after taking: On ios use this
 ##############################################################
   Future<void> _openCamera() async {
     WidgetsFlutterBinding.ensureInitialized();
@@ -48,7 +50,129 @@ IF u have issue in loading image after taking: On ios use this
     }
   }
 
-
+>>>>>>>>>>>>>>>>>>> Show Image <<<<<<<<<<<<<<<<<<<<<<<<<<<
+  Widget imageView() {
+    return imageFiles.isNotEmpty
+        ? Column(
+            children: <Widget>[
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Container(
+                  height: 250,
+                  width: double.infinity,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(5),
+                  ),
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(12),
+                    child: Image.file(
+                      File(imageFiles[imageIndex]
+                          .path!), // Convert PlatformFile to File
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                ),
+              ),
+              SizedBox(
+                height: 1,
+              ),
+              GridView.builder(
+                shrinkWrap: true,
+                physics: BouncingScrollPhysics(),
+                itemCount: imageFiles.length < 2
+                    ? imageFiles.length + 1
+                    : imageFiles.length,
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisSpacing: 0.8,
+                    mainAxisSpacing: 0.8,
+                    crossAxisCount: 3),
+                itemBuilder: (context, index) {
+                  if (imageFiles.length < 2) if (index == imageFiles.length) {
+                    return Container(
+                      decoration: BoxDecoration(
+                        border: Border.all(color: Color(0xffC90503)),
+                      ),
+                      child: SizedBox(
+                        width: 70,
+                        height: 70,
+                        child: TextButton(
+                          style: ButtonStyle(
+                              backgroundColor:
+                                  WidgetStateProperty.all(Colors.white),
+                              textStyle: WidgetStateProperty.all(
+                                  TextStyle(color: Colors.black))),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: <Widget>[
+                              Icon(Icons.add),
+                            ],
+                          ),
+                          onPressed: () {
+                            _openCamera();
+                          },
+                        ),
+                      ),
+                    );
+                  }
+                  return Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Container(
+                      decoration: imageIndex == index
+                          ? BoxDecoration(
+                              border: Border.all(color: Color(0xffC90503)),
+                            )
+                          : null,
+                      child: InkWell(
+                        onTap: () {
+                          setState(() {
+                            imageIndex = index;
+                          });
+                        },
+                        child: Stack(
+                          children: <Widget>[
+                            Container(
+                              width: double.infinity,
+                              child: Image.file(
+                                File(imageFiles[index]
+                                    .path!), // Convert PlatformFile to File
+                                fit: BoxFit.cover,
+                              ),
+                            ),
+                            Positioned(
+                                right: 5,
+                                top: 5,
+                                child: CircleAvatar(
+                                  backgroundColor: Colors.white,
+                                  radius: 13,
+                                  child: CircleAvatar(
+                                      backgroundColor: Colors.red,
+                                      radius: 12,
+                                      child: IconButton(
+                                        padding: EdgeInsets.zero,
+                                        onPressed: () {
+                                          imageFiles.removeAt(index);
+                                          imageIndex = 0;
+                                          setState(() {});
+                                        },
+                                        icon: Icon(
+                                          Icons.close,
+                                          size: 15,
+                                          color: Colors.white,
+                                        ),
+                                      )),
+                                )),
+                          ],
+                        ),
+                      ),
+                    ),
+                  );
+                },
+              ),
+            ],
+          )
+        : Container();
+  }
 
 =======================================================================>......>>>>>>>>>>>>>>>>>>>>>>
 
