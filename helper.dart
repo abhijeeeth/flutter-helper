@@ -1,4 +1,97 @@
 class UtilHelper {
+
+  //Space remover for email login
+                TextFormField(
+                controller = username,
+                keyboardType = TextInputType.text,
+                decoration = InputDecoration(
+                    enabledBorder: UnderlineInputBorder(
+                      borderSide: BorderSide(color: Colors.black54),
+                    ),
+                    focusedBorder: UnderlineInputBorder(
+                      borderSide: BorderSide(color: Colors.black54),
+                    ),
+                    contentPadding:
+                        EdgeInsets.symmetric(vertical: 10.0, horizontal: 0.0),
+                    fillColor: Colors.white,
+                    labelText: "Mobile Number or Email Address",
+                    labelStyle: TextStyle(fontSize: 16.0),
+                    filled: true),
+                onChanged = (value) {
+                  // Trim the value if it has trailing spaces
+                  if (value.endsWith(' ')) {
+                    username.text = value.trimRight();
+                    // Move cursor to end after trimming
+                    username.selection = TextSelection.fromPosition(
+                      TextPosition(offset: username.text.length),
+                    );
+                  }
+
+                  String pattern = r'(^(?:[+0]9)?[0-9]{10}$)';
+                  RegExp regExp = RegExp(pattern);
+                  if (regExp.hasMatch(value)) {
+                    if (value.length > 10) {
+                      checkStatus = true;
+                      setState(() {});
+                    } else {
+                      checkStatus = false;
+                      setState(() {});
+                    }
+                  } else {
+                    checkStatus = true;
+                    setState(() {});
+                  }
+                },
+                validator = (value) {
+                  if (value == null) return 'Cannot be empty';
+
+                  // Trim the value for validation
+                  String trimmedValue = value.trimRight();
+
+                  // Check if original value had trailing spaces
+                  if (value != trimmedValue) {
+                    return 'Trailing spaces are not allowed';
+                  }
+
+                  if (value.isEmpty) {
+                    return 'Cannot be empty';
+                  }
+
+                  if (value.isNotEmpty &&
+                      !checkStatus &&
+                      value.toUpperCase() != value) {
+                    Pattern pattern =
+                        r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$';
+                    RegExp regex = RegExp(pattern as String);
+                    if (!regex.hasMatch(value)) {
+                      return 'Enter a valid Email or Username';
+                    }
+                  }
+
+                  return null;
+                },
+              ),
+           
+   
+
+
+  //Responsive Font
+  double responsiveFontSize(BuildContext context, double baseFontSize) {
+    double screenWidth = MediaQuery.of(context).size.width;
+    double screenHeight = MediaQuery.of(context).size.height;
+    double averageScreenSize = (screenWidth + screenHeight) / 2;
+    return baseFontSize *
+        (averageScreenSize / 600); // 600 is an arbitrary base size.
+  }
+//Example for responsive font size
+Text(
+  'Responsive Text',
+  style = TextStyle(
+    fontSize: UtilHelper.responsiveFontSize(context, 16), // 16 is the base font size.
+  ),
+),
+
+
   // Snackbar Helper
   static void showSnackBar(BuildContext context, String message,
       {Color? color}) {
