@@ -1,0 +1,88 @@
+ Flutter Tips & Tricks
+ ==================
+ 1. Hot Reload (r): Quickly see changes without restarting app
+ 2. Hot Restart (R): Full restart when state changes needed
+ 3. Use const constructors when possible for better performance
+ 4. Enable null safety for safer code
+ 5. Use flutter_lints for better code quality
+ 6. Implement responsive design using LayoutBuilder
+ 7. Use DevTools for debugging and profiling
+ 8. Keep widgets small and focused
+ 9. Cache network images for better performance
+ 10. Use async/await for cleaner asynchronous code
+
+Tips:
+- Always use const constructors when widget properties are final
+- Keep widget methods small and focused
+- Use meaningful names for widget classes
+- Consider extracting reusable widgets
+- Remember to handle null safety
+- Make widgets reusable by accepting parameters
+- Document your reusable widgets for team usage
+
+Flutter Best Practices & Guidelines
+==================
+Do's:
+1. Use meaningful widget and variable names
+2. Break large widgets into smaller, reusable components
+3. Follow proper state management patterns (Provider, Bloc, Riverpod etc.)
+4. Handle errors and edge cases gracefully
+5. Add comments for complex logic
+6. Use const constructors whenever possible
+7. Implement proper error boundaries
+8. Follow platform-specific design guidelines
+9. Write unit and widget tests
+10. Use proper code formatting and linting
+
+Don'ts:
+1. Don't use setState() for complex state management
+2. Avoid deeply nested widgets
+3. Don't ignore lifecycle methods
+4. Avoid heavy computations in build method
+5. Don't use hard-coded values for dimensions/colors
+6. Avoid unnecessary widget rebuilds
+7. Don't ignore memory leaks in StreamControllers/animations
+8. Avoid mixing business logic with UI code
+9. Don't skip error handling
+10. Avoid unnecessary widget state
+
+Performance Tips:
+1. Use const widgets when possible
+2. Implement pagination for large lists
+3. Cache network resources
+4. Use lazy loading for heavy widgets
+5. Minimize rebuild scope using selective setState()
+6. Use RepaintBoundary wisely
+7. Optimize images and assets
+8. Use proper keys for dynamic lists
+9. Profile app performance regularly
+10. Remove debug prints in release mode
+
+
+Flutter CLI Commands
+==================
+flutter create my_app
+flutter run
+flutter build apk
+flutter build ios
+flutter clean
+flutter pub get
+flutter pub upgrade
+flutter doctor
+flutter analyze
+flutter test
+
+LAUNCHER ICON
+// on pubspec.yaml
+flutter_launcher_icons:
+  android: "launcher_icon"
+  ios: true
+  remove_alpha_ios: true
+  image_path: "lib/assets/icons/gropu1icon.png"
+  adaptive_icon_foreground: "lib/assets/icons/gropu1icon.png"
+  adaptive_icon_background: "#FFFFF"
+  min_sdk_android: 21
+
+
+Scrcpy Commands:
+  1. scrcpy -Sw --always-on-top
