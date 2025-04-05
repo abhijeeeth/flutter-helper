@@ -1,0 +1,104 @@
+// Steps:
+// Open VS Code.
+// Go to the Command Palette (Ctrl + Shift + P or F1).
+// Type and select Preferences: Open Settings (JSON).
+// VS Code will open the settings.json file.
+// Replace or merge the contents of the file with your provided JSON settings: 
+{
+    "security.workspace.trust.untrustedFiles": "open",
+    "workbench.colorTheme": "Monokai Dimmed",
+    "explorer.confirmDelete": false,
+    "git.confirmSync": false,
+    "git.autofetch": true,
+    "git.enableSmartCommit": true,
+    // Flutter & Dart specific settings
+    "editor.formatOnSave": true,
+    "editor.formatOnType": true,
+    "dart.previewFlutterUiGuides": true,
+    "dart.openDevTools": "flutter",
+    "dart.debugExternalPackageLibraries": false,
+    "dart.debugSdkLibraries": false,
+    "editor.codeActionsOnSave": {
+        "source.fixAll": "explicit",
+        "source.organizeImports": "explicit"
+    },
+    "[dart]": {
+        "editor.rulers": [
+            80
+        ],
+        "editor.selectionHighlight": false,
+        "editor.suggestSelection": "first",
+        "editor.bracketPairColorization.enabled": true,
+        "editor.guides.bracketPairs": true
+    }
+}
+
+# VS Code Settings Explained
+
+## 🔐 Security
+
+- **`"security.workspace.trust.untrustedFiles": "open"`**  
+  Automatically opens untrusted files in a workspace without showing a warning prompt.
+
+---
+
+## 🎨 Theme
+
+- **`"workbench.colorTheme": "Monokai Dimmed"`**  
+  Sets the editor’s color theme to **Monokai Dimmed**.
+
+---
+
+## 📁 Explorer
+
+- **`"explorer.confirmDelete": false`**  
+  Disables the confirmation dialog when deleting files from the Explorer.
+
+---
+
+## 🔄 Git Settings
+
+- **`"git.confirmSync": false`**  
+  Skips confirmation when syncing changes with Git.
+
+- **`"git.autofetch": true`**  
+  Automatically fetches Git changes in the background.
+
+- **`"git.enableSmartCommit": true`**  
+  Allows committing directly without staging changes if there’s only one modified file.
+
+---
+
+## 🛠️ Editor Formatting
+
+- **`"editor.formatOnSave": true`**  
+  Automatically formats the file when you save it.
+
+- **`"editor.formatOnType": true`**  
+  Automatically formats as you type.
+
+---
+
+## 🐦 Dart & Flutter
+
+- **`"dart.previewFlutterUiGuides": true`**  
+  Shows visual layout guides for Flutter widgets.
+
+- **`"dart.openDevTools": "flutter"`**  
+  Opens **Flutter DevTools** by default when debugging.
+
+- **`"dart.debugExternalPackageLibraries": false`**  
+  Prevents stepping into external package code during debugging.
+
+- **`"dart.debugSdkLibraries": false`**  
+  Prevents stepping into Dart SDK code during debugging.
+
+---
+
+## 💡 Code Actions on Save
+
+```json
+"editor.codeActionsOnSave": {
+    "source.fixAll": "explicit",
+    "source.organizeImports": "explicit"
+}
