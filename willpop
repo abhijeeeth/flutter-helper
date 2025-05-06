@@ -1,0 +1,95 @@
+
+  Future<bool> _showExitDialog() async {
+    return await showDialog(
+          context: context,
+          builder: (context) => Dialog(
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(16),
+            ),
+            backgroundColor: const Color(0xFF1E1E1E),
+            child: Padding(
+              padding: const EdgeInsets.all(24),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  const Text(
+                    "Exit App",
+                    style: TextStyle(
+                      color: Color(0xFFCFD0D0),
+                      fontSize: 16,
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
+                  const SizedBox(height: 8),
+                  const Text(
+                    "Are you sure you want to exit?",
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontSize: 12,
+                      fontWeight: FontWeight.w300,
+                      color: Color(0xFFCFD0D0),
+                    ),
+                  ),
+                  const SizedBox(height: 24),
+                  Row(
+                    children: [
+                      Expanded(
+                        child: OutlinedButton(
+                          style: OutlinedButton.styleFrom(
+                            side: const BorderSide(color: Colors.white54),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(8),
+                            ),
+                          ),
+                          onPressed: () => Navigator.of(context).pop(false),
+                          child: const Text(
+                            "Cancel",
+                            style: TextStyle(
+                              color: Color(0xFFCFD0D0),
+                              fontSize: 14,
+                              fontWeight: FontWeight.w300,
+                            ),
+                          ),
+                        ),
+                      ),
+                      const SizedBox(width: 12),
+                      Expanded(
+                        child: ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: Colors.white,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(8),
+                            ),
+                          ),
+                          onPressed: () {
+                            Navigator.of(context).pop(true);
+                            if (Platform.isAndroid) {
+                              SystemNavigator.pop(animated: true);
+                            } else if (Platform.isIOS) {
+                              // On iOS, this combination helps ensure the app is properly removed from recents
+                              SystemChannels.platform
+                                  .invokeMethod('SystemNavigator.pop');
+                              exit(0);
+                            }
+                          },
+                          child: const Text(
+                            "Exit",
+                            style: TextStyle(
+                              color: Color(0xFF131313),
+                              fontSize: 14,
+                              fontWeight: FontWeight.w300,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ) ??
+        false;
+  }
+
+  
